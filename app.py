@@ -51,7 +51,8 @@ def process_add_page():
     data = request.form
 
     # instatiating object to process bulk add
-    bulk_add = BulkPageAdd(API_URL, API_KEY, data['content'], data['subjects'])
+    # need to add validations later
+    bulk_add = BulkPageAdd(API_URL, API_KEY, title=data['title'], content=data['content'], subject_list=data['subjects'])
 
     status = bulk_add.bulk_add_pages()
 
