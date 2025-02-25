@@ -50,10 +50,15 @@ def process_add_page():
 
     # fetching form data
     data = request.form
+    publish_state = False
+
+    # checking to see if publish was checked
+    if 'publish' in data:
+        publish_state = True
 
     # instatiating object to process bulk add
     # need to add validations later
-    bulk_add = BulkPageAdd(API_URL, API_KEY, title=data['title'], content=data['content'], subject_list=data['subjects'])
+    bulk_add = BulkPageAdd(API_URL, API_KEY, title=data['title'], content=data['content'], will_publish= publish_state, subject_list=data['subjects'])
 
     result = bulk_add.bulk_add_pages()
 

@@ -2,11 +2,12 @@ from canvasapi import Canvas
 
 class BulkPageAdd:
 
-    def __init__(self, canvas_url, canvas_key, title, content, subject_list):
+    def __init__(self, canvas_url, canvas_key, title, content, will_publish, subject_list):
         self.canvas_url = canvas_url
         self.canvas_key = canvas_key
         self.title = title
         self.content = content
+        self.will_publish = will_publish
         self.subject_list = subject_list
         self.canvas = Canvas(canvas_url, canvas_key)
 
@@ -20,7 +21,7 @@ class BulkPageAdd:
             a_page = subject.create_page(wiki_page = {
                 'title': self.title,
                 'body': f"""{self.content}""",
-                'published': False
+                'published': self.will_publish
             })
             full_page_url = {'status': 'success', 'm': f"Success - {self.canvas_url}courses/{subject.id}/pages/{a_page.url}"}
             response = full_page_url
