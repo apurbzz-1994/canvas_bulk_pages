@@ -1,0 +1,16 @@
+<form action="/add_page" method="post">
+    <label>Subjects:</label>
+    {% if subjects %}
+        <textarea name="subjects" rows="4" cols="50">{{subjects}}</textarea>
+    {% else %}
+        <textarea name="subjects" rows="4" cols="50">Please enter your subject code</textarea>
+    {% endif %}
+    <label>Content:</label>
+    <textarea name="content" rows="4" cols="50">Enter HTML text</textarea>
+    <input type="submit">
+</form>
+
+<form action="/upload_csv" method="POST" enctype="multipart/form-data">
+    <input type="file" name="csv_file" accept=".csv">
+    <button type="submit">Upload</button>
+</form>
