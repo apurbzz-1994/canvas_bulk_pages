@@ -54,12 +54,9 @@ def process_add_page():
     # need to add validations later
     bulk_add = BulkPageAdd(API_URL, API_KEY, title=data['title'], content=data['content'], subject_list=data['subjects'])
 
-    status = bulk_add.bulk_add_pages()
+    result = bulk_add.bulk_add_pages()
 
-    if status == 1:
-        to_render = render_template('success.html', add = data['subjects'])
-    else:
-        to_render = render_template('failure.html')
+    to_render = render_template('success.html', add = result)
 
     return to_render
 

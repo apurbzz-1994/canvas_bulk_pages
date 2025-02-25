@@ -7,7 +7,16 @@
 </head>
 <body>
     <h1>Bulk-add Page</h1>
-    <h3 style="color: green;">Pages successfully added to following subjects: {{add}}</h3>
+    <div>
+        <h2>Results</h2>
+        {% for each in add %}
+            {% if each['status'] == 'success' %}
+                <p style="color:green">{{each['m']}}</p>
+            {% else %}
+                <p style="color:red">{{each['m']}}</p>
+            {% endif %}        
+        {% endfor %}
+    </div>
     {% include 'form.html' %}
 </body>
 </html>
