@@ -24,12 +24,12 @@ def index_page():
 def csv_upload():
     #replace the json outputs with proper views later on
     if 'csv_file' not in request.files:
-        return jsonify({"error": "No file uploaded"}), 400
+        return render_template('load_from_file.html', error = "No file uploaded")
 
     file = request.files['csv_file']
 
     if file.filename == '':
-        return jsonify({"error": "No selected file"}), 400
+        return render_template('load_from_file.html', error = "No selected file")
     
     # read csv file
     stream = io.StringIO(file.stream.read().decode('utf-8'))

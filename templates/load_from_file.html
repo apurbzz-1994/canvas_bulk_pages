@@ -10,7 +10,11 @@
 </head>
 <body>
     <div class = "container-fluid">
-        <div class="alert alert-success mt-2" role="alert">Subjects added successfully from CSV</div>
+        {% if error %}
+            <div class="alert alert-danger mt-2" role="alert">{{error}}</div>
+        {% else %}
+            <div class="alert alert-success mt-2" role="alert">Subjects added successfully from CSV</div>
+        {% endif %}
         <div class = "row ml-4 mr-4 mt-2">
             <div class = "col-12 col-md-12 col-lg-12">
                 <h1>Bulk-add Pages</h1>
