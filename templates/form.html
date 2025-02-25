@@ -1,18 +1,43 @@
-<form action="/add_page" method="post">
-    <label>Subjects:</label>
-    {% if subjects %}
-        <textarea name="subjects" rows="4" cols="50">{{subjects}}</textarea>
-    {% else %}
-        <textarea name="subjects" rows="4" cols="50">Please enter your subject code</textarea>
-    {% endif %}
-    <label>Page Title</label>
-    <input type="text" name="title">
-    <label>Content:</label>
-    <textarea name="content" rows="4" cols="50">Enter HTML text</textarea>
-    <input type="submit">
-</form>
+<div class="col-12 mt-4">
+    <form action="/add_page" method="post">
+        <div class="row">
+            <div class="col">
+                <!--Subjects text area-->
+                <div class="form-group">
+                    <label>Subjects:</label>
+                    {% if subjects %}
+                        <textarea name="subjects" class="form-control" rows="4" cols="50">{{subjects}}</textarea>
+                    {% else %}
+                        <textarea name="subjects" class="form-control" rows="4" cols="50" placeholder="Please enter subject codes separated by commas"></textarea>
+                    {% endif %}
+                </div>
+            </div>
+            <div class="col">
+                <!--Page title text area-->
+                <div class="form-group">
+                    <label>Page Title:</label>
+                    <input type="text" class="form-control" name="title">
+                </div>
+                <!--HTML content text area-->
+                <div class="form-group">
+                    <label>Content:</label>
+                    <textarea name="content" class="form-control" rows="4" cols="50" placeholder="Enter HTML"></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary float-right">Bulk-Add</button>
+            </div>
+        </div>
+    </form>
 
-<form action="/upload_csv" method="POST" enctype="multipart/form-data">
-    <input type="file" name="csv_file" accept=".csv">
-    <button type="submit">Upload</button>
-</form>
+    <form action="/upload_csv" method="POST" enctype="multipart/form-data">
+        <div class = "row">
+            <div class="col">
+                <div class="form-group">
+                    <label>Load subject codes from CSV:</label>
+                    <input type="file" class="form-control-file" name="csv_file" accept=".csv">
+                </div>
+                <button type="submit" class="btn btn-secondary">Upload</button>
+            </div>
+        </div>
+
+    </form>
+</div>

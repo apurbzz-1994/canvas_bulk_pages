@@ -22,6 +22,7 @@ def index_page():
 
 @app.route('/upload_csv', methods=['post'])
 def csv_upload():
+    #replace the json outputs with proper views later on
     if 'csv_file' not in request.files:
         return jsonify({"error": "No file uploaded"}), 400
 
