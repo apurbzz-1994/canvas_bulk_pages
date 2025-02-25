@@ -31,5 +31,5 @@ Given a group of SIS course ids (which can be typed in or uploaded from a CSV co
 
     Depending on your system, you may need to use `python` or `python3` in the above command. 
 
-6. The command in step 4 will launch a Flask development server (usally on http://127.0.0.1:5000), but check the command line as it might be running on a different localhost ip address. 
+6. The command in step 5 will launch a Flask development server (usally on http://127.0.0.1:5000), but check the command line as it might be running on a different localhost ip address. 
 
